@@ -9,7 +9,15 @@
 
 ### Prerequisites
 
-- [Neovim](neovim-install) >= v0.8.0
+- [Neovim] >= v0.8.0
+- [git]
+- [make]
+- [pip]
+- [python] 
+- [npm]
+- [node]
+- [cargo]
+- [ripgrep]
 
 </details>
 
