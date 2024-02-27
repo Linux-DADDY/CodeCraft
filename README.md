@@ -1,4 +1,6 @@
-# CodeCraft
+# CodeCraft - The Best Code Editor.
+
+CodeCraft is an AI-powered code editor designed to enhance your coding experience. Whether you’re a seasoned developer or just starting out, CodeCraft provides a powerful environment for writing, editing, and testing your code seamlessly. With features like intelligent code suggestions, syntax highlighting, and real-time error checking, CodeCraft aims to boost your productivity and streamline your development workflow.
 
 </details>
 
