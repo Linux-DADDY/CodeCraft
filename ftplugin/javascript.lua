@@ -17,7 +17,7 @@ local mappings = {
     g = { "<cmd>TypescriptGoToSourceDefinition<Cr>", "GoToSourceDefinition" },
   },
   ["z"] = {
-    name = " console.log",
+    name = "Console.log",
     l = { '"ayiwoconsole.log(\'<C-R>a:\', <C-R>a);<Esc>', "console.log" },
     L = { '"ayiwoconsole.log(\'<C-R>a:\', JSON.stringify(<C-R>a, null, 3));<Esc>', "console.log + JSON.stringfy" },
     e = { '"ayiwoconsole.error(\'<C-R>a:\', <C-R>a);<Esc>', "console.error" },
@@ -33,7 +33,7 @@ local mappings = {
 
 local vmappings = {
   ["z"] = {
-    name = " console.log",
+    name = "Console.log",
     l = { 'yoconsole.log(\'<esc>pa:\', <esc>pa);<Esc>', "console.log" },
     L = { 'yoconsole.log(\'<esc>pa:\', JSON.stringify(<esc>pa, null, 3));<Esc>', "console.log + JSON.stringfy" },
     e = { 'yoconsole.error(\'<esc>pa:\', <esc>pa);<Esc>', "console.error" },

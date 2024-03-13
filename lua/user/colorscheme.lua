@@ -3,21 +3,33 @@ local themes = {
   rose_pine = "rose-pine",
   lunar = "lunar",
   gruvbox_material = "gruvbox-material",
-  onedarker = "onedarker",
-  onedark = "onedark",
   horizon = "horizon",
   tokyonight = "tokyonight",
   tokyonight_night = "tokyonight-night",
-  tokyonight_day = "tokyonight-day",
   tokyonight_moon = "tokyonight-moon",
   desert = "desert",
   morning = "morning",
   sonokai = "sonokai",
   edge = "edge",
   ayu = "ayu",
+  nightfox = "nightfox",
+  duskfox = "duskfox",
+  nordfox = "nordfox",
+  terafox = "terafox",
+  onedark_vivid = "onedark_vivid",
+  onedark_dark = "onedark_dark",
+  everforest = "everforest",
+  kanagawa = "kanagawa",
+  kanagawa_dragon = "kanagawa-dragon",
+  oxocarbon = "oxocarbon",
 }
 
-lvim.colorscheme = themes.tokyonight_moon
+lvim.colorscheme = themes.nightfox
+
+if vim.g.neovide then
+  lvim.transparent_window = false
+  return
+end
 
 local extra_opts = {
   sonokai = {

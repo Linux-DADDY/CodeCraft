@@ -1,16 +1,18 @@
 local default_opts = { noremap = true, silent = true }
 
 local keymap = function(mode, from, to, opts)
-  if not opts then opts = default_opts end
-  vim.keymap.set(mode, from, to, opts)
+	if not opts then
+		opts = default_opts
+	end
+	vim.keymap.set(mode, from, to, opts)
 end
 
 local nkeymap = function(from, to, opts)
-  keymap("n", from, to, opts)
+	keymap("n", from, to, opts)
 end
 
 local ikeymap = function(from, to, opts)
-  keymap("i", from, to, opts)
+	keymap("i", from, to, opts)
 end
 
 nkeymap("zs", ":lua require'telescope.builtin'.spell_suggest()<cr>")
@@ -26,44 +28,43 @@ ikeymap("<C-o>c", "<C-k>Co")
 ikeymap("<C-o>ok", "<C-k>OK")
 ikeymap("<C-o>r", "🚀")
 
---HOP
-local hop_ok, hop = pcall(require, 'hop')
-if hop_ok then
-  local directions = require('hop.hint').HintDirection
-  local modes = { 'n', 'o' }
-  local opts = { remap = true, silent = true }
-  keymap(modes, 'f', function()
-    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
-  end, opts)
+-- --HOP
+-- local hop_ok, hop = pcall(require, 'hop')
+-- if hop_ok then
+--   local directions = require('hop.hint').HintDirection
+--   local modes = { 'n', 'o' }
+--   local opts = { remap = true, silent = true }
+--   keymap(modes, 'f', function()
+--     hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+--   end, opts)
 
-  keymap(modes, 'F', function()
-    hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
-  end, opts)
+--   keymap(modes, 'F', function()
+--     hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+--   end, opts)
 
-  keymap(modes, 't', function()
-    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
-  end, opts)
+--   keymap(modes, 't', function()
+--     hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+--   end, opts)
 
-  keymap(modes, 'T', function()
-    hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
-  end, opts)
+--   keymap(modes, 'T', function()
+--     hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+--   end, opts)
 
-  nkeymap('s', function()
-    hop.hint_char2({ direction = directions.AFTER_CURSOR })
-  end, opts)
+--   nkeymap('s', function()
+--     hop.hint_char2({ direction = directions.AFTER_CURSOR })
+--   end, opts)
 
-  nkeymap('S', function()
-    hop.hint_char2({ direction = directions.BEFORE_CURSOR })
-  end, opts)
-end
-
+--   nkeymap('S', function()
+--     hop.hint_char2({ direction = directions.BEFORE_CURSOR })
+--   end, opts)
+-- end
 
 -- NEOGEN
 lvim.keys.normal_mode["<C-,>"] = "<cmd>lua require('neogen').jump_next()<CR>"
 lvim.builtin.which_key.mappings["n"] = {
-  name = "Neogen",
-  c = { "<cmd>lua require('neogen').generate({ type = 'class'})<CR>", "Class Documentation" },
-  f = { "<cmd>lua require('neogen').generate({ type = 'func'})<CR>", "Function Documentation" },
-  t = { "<cmd>lua require('neogen').generate({ type = 'type'})<CR>", "Type Documentation" },
-  F = { "<cmd>lua require('neogen').generate({ type = 'file'})<CR>", "File Documentation" },
+	name = "Neogen",
+	c = { "<cmd>lua require('neogen').generate({ type = 'class'})<CR>", "Class Documentation" },
+	f = { "<cmd>lua require('neogen').generate({ type = 'func'})<CR>", "Function Documentation" },
+	t = { "<cmd>lua require('neogen').generate({ type = 'type'})<CR>", "Type Documentation" },
+	F = { "<cmd>lua require('neogen').generate({ type = 'file'})<CR>", "File Documentation" },
 }

@@ -3,6 +3,7 @@ local M = {}
 M.config = function()
   local tree_icons = require("user.kind").nvim_tree_icons
   require("neo-tree").setup {
+    close_if_last_window = true,
     popup_border_style = "rounded",
     enable_diagnostics = false,
     source_selector = {
@@ -12,19 +13,19 @@ M.config = function()
       sources = {
         {
           source = "filesystem",
-          display_name = " 󰉓 Files ",
+          display_name = "              󰉓 Files    ",
         },
-        {
-          source = "buffers",
-          display_name = " 󰈙 Buffers ",
-        },
-        {
-          source = "git_status",
-          display_name = " 󰊢 Git ",
-        },
+        -- {
+        --   source = "buffers",
+        --   display_name = " 󰈙 Buffers ",
+        -- },
+        -- {
+        --   source = "git_status",
+        --   display_name = " 󰊢 Git ",
+        -- },
       },
     },
-    enable_git_status = true,
+    enable_git_status = false,
     git_status_async = true,
     nesting_rules = {
       ["dart"] = { "freezed.dart", "g.dart" },
@@ -47,8 +48,8 @@ M.config = function()
       },
     },
     window = {
-      position = "left",
-      width = 30,
+      position = "right",
+      width = 35,
     },
     filesystem = {
       group_empty_dirs = true,
@@ -67,12 +68,18 @@ M.config = function()
         },
       },
       window = {
+        width = 35,
         mappings = {
           ["h"] = "navigate_up",
           ["l"] = "open",
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
         },
       },
-      follow_current_file = true,
+      follow_current_file = {
+        enabled = true,          -- Whether to follow by default
+        auto_open = false,       -- Whether to automatically open the file
+        trigger_on_write = true, -- Whether to follow on file write
+      },
       hijack_netrw_behavior = "open_current",
       use_libuv_file_watcher = true,
     },

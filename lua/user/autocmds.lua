@@ -15,8 +15,25 @@ lvim.autocommands = {
   {
     "BufEnter",
     {
-      pattern = { "*.lua", "*.js", "*.ts", "*.tsx", "*.jsx" },
-      command = "set formatoptions-=o",
+      pattern = { "*.json", "*.jsonc", "*.js", "*.ts", "*lua" }, -- Filetype patterns
+      command = "setlocal formatoptions-=o",                     -- Remove 'o' from formatoptions
     },
   },
 }
+
+-- -- NOTE: Set wrap for specific filetypes
+-- lvim.autocommands = {
+--   {
+--     "BufEnter",                                          -- see `:h autocmd-events`
+--     {                                                    -- this table is passed verbatim as `opts` to `nvim_create_autocmd`
+--       pattern = { "*.json", "*.jsonc", "*.js", "*.ts" }, -- see `:h autocmd-events`
+--       command = "setlocal wrap",
+--     }
+--   },
+-- }
+
+	vim.api.nvim_create_autocmd("BufRead", {
+		pattern = "*.norg",
+		command = "norm zR",
+	})
+
